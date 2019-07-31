@@ -20,40 +20,70 @@
 <br>
 <hr>
 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<br>
+<div id="chartContainer2" style="height: 370px; width: 100%;"></div>
 <hr>
 <script>
 window.onload = function () {
 
-var chart = new CanvasJS.Chart("chartContainer", {
-	animationEnabled: true,
-	exportEnabled: true,
-	theme: "light1", // "light1", "light2", "dark1", "dark2"
-	title:{
-		text: "Simple Column Chart with Index Labels"
-	},
-	data: [{
-		type: "column", //change type to bar, line, area, pie, etc
-		//indexLabel: "{y}", //Shows y value on all Data Points
-		indexLabelFontColor: "#5A5757",
-		indexLabelPlacement: "outside",
-		dataPoints: [
-			{ x: 10, y: 71 },
-			{ x: 20, y: 55 },
-			{ x: 30, y: 50 },
-			{ x: 40, y: 65 },
-			{ x: 50, y: 92, indexLabel: "Highest" },
-			{ x: 60, y: 68 },
-			{ x: 70, y: 38 },
-			{ x: 80, y: 71 },
-			{ x: 90, y: 54 },
-			{ x: 100, y: 60 },
-			{ x: 110, y: 36 },
-			{ x: 120, y: 49 },
-			{ x: 130, y: 21, indexLabel: "Lowest" }
-		]
-	}]
-});
-chart.render();
+	var chart = new CanvasJS.Chart("chartContainer", {
+		animationEnabled: true,
+		exportEnabled: true,
+		theme: "light1", // "light1", "light2", "dark1", "dark2"
+		title:{
+			text: "Simple Column Chart with Index Labels"
+		},
+		data: [{
+			type: "column", //change type to bar, line, area, pie, etc
+			//indexLabel: "{y}", //Shows y value on all Data Points
+			indexLabelFontColor: "#5A5757",
+			indexLabelPlacement: "outside",
+			dataPoints: [
+				{ x: 10, y: 71 },
+				{ x: 20, y: 55 },
+				{ x: 30, y: 50 },
+				{ x: 40, y: 65 },
+				{ x: 50, y: 92, indexLabel: "Highest" },
+				{ x: 60, y: 68 },
+				{ x: 70, y: 38 },
+				{ x: 80, y: 71 },
+				{ x: 90, y: 54 },
+				{ x: 100, y: 60 },
+				{ x: 110, y: 36 },
+				{ x: 120, y: 49 },
+				{ x: 130, y: 21, indexLabel: "Lowest" }
+			]
+		}]
+	});
+	chart.render();
 
+
+	var chart2 = new CanvasJS.Chart("chartContainer2", {
+		animationEnabled: true,
+		theme: "light2", // "light1", "light2", "dark1", "dark2"
+		title:{
+			text: "Top Oil Reserves"
+		},
+		axisY: {
+			title: "Reserves(MMbbl)"
+		},
+		data: [{        
+			type: "column",  
+			showInLegend: true, 
+			legendMarkerColor: "grey",
+			legendText: "MMbbl = one million barrels",
+			dataPoints: [      
+				{ y: 300878, label: "Venezuela" },
+				{ y: 266455,  label: "Saudi" },
+				{ y: 169709,  label: "Canada" },
+				{ y: 158400,  label: "Iran" },
+				{ y: 142503,  label: "Iraq" },
+				{ y: 101500, label: "Kuwait" },
+				{ y: 97800,  label: "UAE" },
+				{ y: 80000,  label: "Russia" }
+			]
+		}]
+	});
+	chart2.render();
 }
 </script>
