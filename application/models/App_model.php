@@ -209,4 +209,9 @@ WHERE a.id_siswa=b.id_siswa AND c.id_siswa=b.id_siswa AND c.id_ajaran=g.id_ajara
 WHERE a.id_siswa=b.id_siswa AND c.id_siswa=b.id_siswa AND c.id_ajaran=g.id_ajaran AND c.id_ajaran='$id_ajaran' AND a.id_kelas='$id_kelas'");
 		return $q;
 	}
+
+
+	public function data_grafik(){
+		
+	}
 }
