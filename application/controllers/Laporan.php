@@ -57,14 +57,17 @@ class laporan extends CI_Controller {
 	}
 
 	public function grafik() {		
+		// var_dump($this->session->userdata());
 		if($this->session->userdata('id') != "") {			
 			$data=array(
 				'jancuk'=>$this->App_model->data_grafik()->result(),
+				'ajaran'=>$this->App_model->get_ajaran(),
+				'kelas' => $this->App_model->get_kelas(),
 			);
 			$this->load->view('top',$data);
-			$this->load->view('menu');
-			$this->load->view('laporan/grafik');
-			$this->load->view('bottom');
+			 $this->load->view('menu');
+			 $this->load->view('laporan/grafik');
+			 $this->load->view('bottom');
 		} else {
 			redirect("login");
 		}	
