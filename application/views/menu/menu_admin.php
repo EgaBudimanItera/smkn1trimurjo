@@ -133,6 +133,12 @@
 	<b class="arrow"></b>
 	<ul class="submenu">
 		<li class="<?php if($this->uri->segment(2)=="raport"){echo 'active';} ?>">
+			<a href="<?php echo base_url(); ?>laporan/grafik" class="">
+				<i class="menu-icon fa fa-caret-right"></i>
+				Grafik Nilai Rata-Rata
+			</a>
+		</li>
+		<li class="<?php if($this->uri->segment(2)=="raport"){echo 'active';} ?>">
 			<a href="<?php echo base_url(); ?>laporan/raport" class="">
 				<i class="menu-icon fa fa-caret-right"></i>
 				Cetak Raport

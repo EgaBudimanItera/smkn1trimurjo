@@ -1,31 +1,29 @@
-<?php if($this->session->flashdata('success')) { ?>
-    <div class="alert alert-success alert-dismissible fade in" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      <?php echo $this->session->flashdata('success'); ?>
-    </div> 
-<?php } ?>
-<?php
-	if ($this->session->userdata('hak_akses') =="Admin") {
-		include 'd_admin.php';
-	} 
-	if ($this->session->userdata('hak_akses') =="Guru") {
-		include 'd_guru.php';
-	}
-	if ($this->session->userdata('hak_akses') =="Siswa") {
-		include 'd_siswa.php';
-	}
-?>
-<br>
-<!-- <?=var_dump($jancuk)?> -->
-<hr>
+<!-- <form action="<?php echo base_url(); ?>laporan/grafik/" method="get">
+	<div class="col-sm-3">
+		<label>TA</label>
+		<div class="row">
+			<div class="col-xs-3 col-sm-12">
+				<select class="form-control" id="id_ajaran" name="id_ajaran">
+					<option value=""></option>
+					<?php foreach ($ajaran->result_array() as $d) { ?>
+					<option value="<?php echo $d['id_ajaran']; ?>"><?php echo $d['periode_aktif']; ?> Semester <?php if($d['smt']=="1"){echo "Ganjil";} if($d['smt']=="2"){echo "Genap";} ?></option>
+					<?php } ?>
+				</select>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-sm-1">
+		<div class="row" style="margin-top:25px;">
+			<div class="col-xs-3 col-sm-12">
+				<button class="btn btn-primary form-control"><i class="fa fa-search"></i></button>
+			</div>
+		</div>
+	</div>
+</form> -->
+
 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-<!-- <br>
-<div id="chartContainer2" style="height: 370px; width: 100%;"></div>
-<br>
-<div id="chartContainer3" style="height: 370px; width: 100%;"></div> -->
-<hr>
+
 <script>
 window.onload = function () {
 
