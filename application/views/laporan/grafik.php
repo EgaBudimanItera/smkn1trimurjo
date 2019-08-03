@@ -36,7 +36,7 @@
 	</form>
  </div>
  <br>
-
+<!-- <?=var_dump($jancuk);?> -->
 <div class="row" id="chartContainer" style="height: 370px; width: 100%;"></div>
 
 <script>
@@ -61,8 +61,9 @@ window.onload = function () {
 			type: "column",
 			// yValueFormatString: "#,##0.0#\"%\"",
 			dataPoints: [
+				
 				<?php foreach($jancuk as $data){?>
-				{ label: "<?=$data->nama?>", y: <?=$data->nilai?> },
+				{ label: "<?=$data->nama.'a'?>", y: <?=$data->nilai?> },
 				<?php }?>	
 			]
 		}]

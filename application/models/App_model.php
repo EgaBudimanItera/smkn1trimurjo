@@ -211,15 +211,31 @@ WHERE a.id_siswa=b.id_siswa AND c.id_siswa=b.id_siswa AND c.id_ajaran=g.id_ajara
 	}
 
 public function data_grafik($id_ajaran,$id_kelas){
-		$q="SELECT AVG(akhir),nama_keahlian from tbl_nilai 
-join tbl_ajaran on(tbl_nilai.id_ajaran=tbl_ajaran.id_ajaran)
-join tbl_detail_mapel on(tbl_nilai.id_detail_mapel=tbl_detail_mapel.id_detail_mapel)
-join tbl_mapel_keahlian on(tbl_detail_mapel.id_mapel_keahlian=tbl_mapel_keahlian.id_mapel_keahlian)
-join tbl_keahlian on(tbl_mapel_keahlian.id_keahlian=tbl_keahlian.id_keahlian)
-join tbl_romkel on(tbl_nilai.id_siswa=tbl_romkel.id_siswa)
-where nilai.id_ajaran='$id_ajaran' and id_kelas='$id_kelas'
-group by nama_keahlian
-order by id_nilai asc";
+		
+	if($id_ajaran=="" && $id_kelas==""){
+		$q="SELECT AVG(akhir) as nilai,nama_keahlian as nama from tbl_nilai 
+			join tbl_ajaran on(tbl_nilai.id_ajaran=tbl_ajaran.id_ajaran)
+			join tbl_detail_mapel on(tbl_nilai.id_detail_mapel=tbl_detail_mapel.id_detail_mapel)
+			join tbl_mapel_keahlian on(tbl_detail_mapel.id_mapel_keahlian=tbl_mapel_keahlian.id_mapel_keahlian)
+			join tbl_keahlian on(tbl_mapel_keahlian.id_keahlian=tbl_keahlian.id_keahlian)
+			join tbl_romkel on(tbl_nilai.id_siswa=tbl_romkel.id_siswa)
+			
+			group by nama_keahlian
+			order by id_nilai asc";
+	}else{
+		$q="SELECT AVG(akhir) as nilai,nama_keahlian as nama from tbl_nilai 
+			join tbl_ajaran on(tbl_nilai.id_ajaran=tbl_ajaran.id_ajaran)
+			join tbl_detail_mapel on(tbl_nilai.id_detail_mapel=tbl_detail_mapel.id_detail_mapel)
+			join tbl_mapel_keahlian on(tbl_detail_mapel.id_mapel_keahlian=tbl_mapel_keahlian.id_mapel_keahlian)
+			join tbl_keahlian on(tbl_mapel_keahlian.id_keahlian=tbl_keahlian.id_keahlian)
+			join tbl_romkel on(tbl_nilai.id_siswa=tbl_romkel.id_siswa)
+			where tbl_nilai.id_ajaran='$id_ajaran' and id_kelas='$id_kelas'
+			group by nama_keahlian
+			order by id_nilai asc";
+	}
+		
+
+		
 		return $this->db->query($q);
 	}
 }
